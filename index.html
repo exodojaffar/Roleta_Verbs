@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!-- Nao esta funcionando a eliminaçao de elementos do array -->
+	<title>Roleta - Verbos</title>
+	<link rel="stylesheet" type="text/css" href="animation.css">
+	<link rel="stylesheet" type="text/css" href="center.css">
+	<script type="text/javascript">
+		// Prototype
+		Array.prototype.GetRandom = function() {
+			var value  = Math.floor(Math.random()*this.length);
+			return {"str":this[value], "index" : value};
+		};
+		String.prototype.capitalize = function() {
+ 		   return this.charAt(0).toUpperCase() + this.slice(1);
+		};
+
+		// Code 
+		var listaVerbos = ["eat", "drink", "take"];
+
+		function RunAnimation(){
+			//document.getElementById('Flipper').classList.toggle("flip");
+			var img = document.getElementByClassName("roleta").style.visibility;
+			if (img != "visible") {
+				img = "visible";
+			}else{
+				img = "hidden";
+			}
+			
+			SetVerb()
+		};
+		function SetVerb() {
+
+			var call = listaVerbos.GetRandom();
+			listaVerbos.splice(call['index'], 1);
+			console.log(call["index"]);
+			document.getElementById("verbo").innerHTML = call['str'].capitalize();
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', '/adm.php?from=sorteio&word='+call['str'], true);
+
+			xhr.send();
+		};
+
+	</script>
+</head>
+<body onclick="SetVerb()">
+
+	<div class="oncenter">
+		<div class="text">
+			<img class="roleta" src="" style="visibility: hidden;">
+			<h1 id="verbo">Verbo</h1>
+		</div>
+	</div>
+
+</body>
+</html>
+

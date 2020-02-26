@@ -1,0 +1,33 @@
+#verbo{
+	color: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center
+
+}
+.text{
+	margin: 0px;
+	position: absolute;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+.oncenter {
+	width: 100vw;
+	height: 100vh;
+	background: black/* #6C7A89*/;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center
+	background: rgb(30,30,30);
+	background: radial-gradient(circle, rgba(30,30,30,1) 0%, rgba(0,0,0,1) 100%); 
+}
+.box {
+	width: 300px;
+	height: 300px;
+}
+body {
+	margin: 0px;
+}
